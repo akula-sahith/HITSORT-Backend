@@ -1,10 +1,14 @@
 const Expenditure = require("../models/Expenditure");
 
 
-exports.getAllExpenditures = async (req,res) => {
-    const expenditures = Expenditure.find();
-    res.json(expenditures);
-}
+exports.getAllExpenditures = async (req, res) => {
+  try {
+    const expenditures = await Expenditure.find();  // ✅ await added
+    res.status(200).json(expenditures);             // ✅ real data now
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 
 exports.updateExpenditure = async (req, res) => {

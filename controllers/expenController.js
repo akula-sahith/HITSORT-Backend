@@ -23,9 +23,10 @@ exports.updateExpenditure = async (req, res) => {
       usedBy,
     });
   } else {
+    let initial = expenditure.amount;
     expenditure.usedFor = usedFor;
     expenditure.usedBy = usedBy;
-    expenditure.amount = amount;
+    expenditure.amount = amount + initial;
   }
 
   await expenditure.save();

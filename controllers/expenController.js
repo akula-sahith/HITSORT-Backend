@@ -14,20 +14,20 @@ exports.getAllExpenditures = async (req, res) => {
 exports.updateExpenditure = async (req, res) => {
   const { usedFor, amount, usedBy } = req.body;
 
-  let expenditure = await Expenditure.findOne({ usedFor });
+//   let expenditure = await Expenditure.findOne({ usedFor });
 
-  if (!expenditure) {
+//   if (!expenditure) {
     expenditure = new Expenditure({
       usedFor,
       amount,
       usedBy,
     });
-  } else {
-    let initial = expenditure.amount;
-    expenditure.usedFor = usedFor;
-    expenditure.usedBy = usedBy;
-    expenditure.amount = amount + initial;
-  }
+//   } else {
+//     let initial = expenditure.amount;
+//     expenditure.usedFor = usedFor;
+//     expenditure.usedBy = usedBy;
+//     expenditure.amount = amount + initial;
+//   }
 
   await expenditure.save();
   res.json(expenditure);

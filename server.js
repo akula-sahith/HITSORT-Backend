@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/cards", require("./routes/cardRoutes"));
+app.use("/api/expenditures",require("./routes/expendRoutes"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));

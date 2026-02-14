@@ -22,8 +22,7 @@ exports.updateCard = async (req, res) => {
     card.sellerName = sellerName;
     card.numberOfGames = numberOfGames;
     card.amount = amount;
-    card.paymentType = paymentType;
-  }
+    card.paymentType = paymentType;  }
 
   await card.save();
   res.json(card);
